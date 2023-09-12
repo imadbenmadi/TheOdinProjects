@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS</title>
+    <link rel="icon" href="logo/icon.png">
+    <link rel="stylesheet" href="CSS/final_result.css">
+    <link rel="stylesheet" href="CSS/start_game.css">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/loading.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+    </style>
+</head>
+<body style="position: relative;">
+    <div class="loading_section flex_center">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="start_game flex_center" > 
+        <div class="start_game_container">
+            <div class="start_game_flex">
+                <div class="start_game_title">
+                    Can You Beat The ROBOT !
+                </div>
+                <div class="start_game_logo">
+                    <img src="logo/angry_robot.png" alt="">
+                </div>
+            </div>
+            <div class="start_game_description">- First who Hit 5 Winns the GAME !</div>
+            <div class="start_game_btn flex_center">
+                <div>
+                    Start The Game
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="finall_result flex_center" >
+        <!-- Win Section -->
+        <div class="finall_result_block winner_block" >
+            <div class="finall_result_block_container win">
+                <div class="Win_block_one" style="position: relative;background-color: #fff;">
+                    <div class="Win_title flex_center">You Win !!</div>
+                    <div class="Win_logo flex_center">
+                        <img src="logo/balloons.png" alt="">
+                    </div>
+                    <div class="win_btn play_again_btn">
+                        <div class="play_again_botton">Play Again</div>
+                    </div>
+                </div>
+
+                <div class="Win_block_two">
+                    <div class="Win_desc">
+                        Congrats !! You Beats The Robots 
+                    </div>
+                    <div class="Robots_defeted_logo">
+                        <img src="logo/robot_cry.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Lose Section -->
+        <div class="finall_result_block loser_block" >
+            <div class="finall_result_block_container lose">
+                <div class="finall_result_lost_left">
+                    <div class="lose_text_title">You Lost</div>
+                    <div class="lose_text_desc">Robots Destroyed Us !!</div>
+                    <div class="robots_destroy_logo">
+                        <img src="logo/evil_robot.png" alt="">
+                    </div>
+                </div>
+                <div class="finall_result_lost_right">
+                    <div class="lose_logo flex_center">
+                        <img src="logo/cry.png" alt="">
+                    </div>
+                    <div class="play_again_btn flex_center">
+                        <div class="play_again_botton">Play Again</div>
+                        <span class="play_again_desc flex_center">
+                            Try Win this time please 
+                            <span class="sad_emojy">
+                                <img src="logo/emojy_sad.png" alt="">
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="game" >
+        <audio id="bg-music" preload="auto" loop>
+            <source src="music/bg_music.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="win-music" preload="auto">
+            <source src="music/win_game.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="lost-music" preload="auto">
+            <source src="music/lost_game.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="up_container" style="position: relative;">
+            <div class="sub_result flex_center">
+                <div class="Win">You Win</div>
+                <div class="Lose">You Lost</div>
+                <div class="Tie">Tie ! </div>
+            </div>
+            <div class="music">
+                <div class="on">
+                    <img src="logo/sound.png" alt="">
+                </div>
+                <div class="off">
+                    <img src="logo/mute.png" alt="">
+                </div>
+            </div>
+
+            <div class="mood">
+                <img src="logo/day-and-night.png" alt="">
+            </div>
+        </div>
+    
+
+        <div class="container">
+            <div class="user">
+                <div class="user_logo">
+                    <img src="logo/avatar.png" alt="">
+                </div>
+                <div class="user_score flex_center">
+                    0
+                </div>
+            </div>
+            <div class="computer" style="position: relative;">
+                <div class="computer_choise flex_center" style="position: absolute;">
+                    <img src="" alt="">
+                </div>
+                <div class="computer_logo">
+                    <img src="logo/robot.png" alt="">
+                </div>
+                <div class="computer_score flex_center">0</div>
+            </div>
+        </div>
+
+        <div class="rps_writer flex_center"></div>
+        <div class="choises">
+            <div class="rock btn">
+                <img data-value="Rock" src="logo/stone.png" alt="">
+            </div>
+            <div class="paper btn">
+                <img data-value="Paper" src="logo/paper.png" alt="">
+            </div>
+            <div class="scissors btn">
+                <img data-value="Scissors" src="logo/scissor.png" alt="">
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>

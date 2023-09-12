@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+
+.start_game{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+    z-index: 999;
+}
+
+.start_game_container{
+    height: 80%;
+    width: 80%;
+    background-color: #fff;
+    border-radius: 30px;
+}
+.start_game_flex{
+    height: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.start_game_logo img{
+    width: 225px;
+     transform: translateY(100%);
+     opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+.show-logo {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+} 
+
+.start_game_title{
+    font-family: 'Sedgwick Ave Display', cursive;
+    color: rgb(53, 53, 53);
+    font-size: 4em;
+    font-weight: 700;
+    text-align: center;
+}
+.start_game_description{
+    height: 10%;
+    margin-left: 25px;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: rgb(109, 109, 109);
+}
+.start_game_btn {
+    height: 10%;
+    color: #fff;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.start_game_btn div{
+    background-color: #070707;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}

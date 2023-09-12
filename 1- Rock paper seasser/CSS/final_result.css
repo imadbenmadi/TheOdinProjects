@@ -1,0 +1,126 @@
+.finall_result{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+/* the Lost Section  */
+.finall_result_block{
+    width: 80%;
+    height: 80%;
+    border-radius: 5px;
+}
+.finall_result_block_container{
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+     width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+
+}
+
+.finall_result_lost_left{
+    flex: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.finall_result_lost_right{
+    flex: 35%;
+}
+.lose_text_title{
+    font-size: 4em;
+    font-weight: bold;
+    font-family: 'Sedgwick Ave Display', cursive;
+}
+.lose_text_desc{
+    font-size: 1.15em;
+    font-weight: bold;
+}
+/* the right Side  */
+.lose_text_desc {
+    text-align: center;
+}
+.play_again_btn{
+    flex-direction: column;
+    margin-top: 25px
+}
+.play_again_btn div{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #000000;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.play_again_desc{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.sad_emojy{
+    margin: 5px;
+}
+.sad_emojy img{
+    width: 25px;
+}
+
+
+
+.robots_destroy_logo img {
+    width: 150px;
+}
+.lose_logo img {
+    width: 100px;
+
+}
+/* The Win Section */
+.win{
+    flex-direction: column;
+}
+.win_btn  {
+    position: absolute;
+    bottom: -100px;
+    right: 130px;
+}
+.win_btn div{
+    background-color: rgb(0, 255, 0);
+    color: black;
+}
+.Win_block_one{
+    height: 70%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.Win_title{
+    flex: 35%;
+    font-size: 3.5em;
+    font-family: 'Sedgwick Ave Display', cursive;
+    text-align: center;
+}
+.Win_logo{
+    flex: 65%;
+}
+.Win_logo img{
+    width: 250px;
+}
+
+
+.Win_block_two{
+    width:100%;
+    margin-left: 50px;
+}
+.Win_desc{
+    font-weight: 600;
+    font-size: 1.6em;
+    
+}
+.Robots_defeted_logo{
+    margin-left: 40px;
+}
+.Robots_defeted_logo img{
+    width: 120px;
+}
