@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/loading.css">
+    <link rel="icon" href="Logo/tic-tac-toe.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+    </style>
+</head>
+<body>
+    <div class="loading_section flex_center">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="app " style="display: none;">
+        <div class="container ">
+            <div class="input_section flex_center">
+                <div class="input_error_message">
+                    Player names are duplicted ! <br>
+                    please change one of them .
+                </div>
+                <div class="icons_block absolut_center flex_center">
+                    <div class="gray_bg"></div>
+                    <div class="icons flex_center">
+                        <div class="icons_block1">
+                            <img src="Logo/hero/batman.png" alt="" class="icon_item">
+                            <img src="Logo/hero/captin america.png" alt="" class="icon_item">
+                            <img src="Logo/hero/hulk.png" alt="" class="icon_item">
+                        </div>
+                        <div class="icons_block2">
+                            <img src="Logo/hero/ironman.png" alt="" class="icon_item">
+                            <img src="Logo/hero/spiderman.png" alt="" class="icon_item">
+                            <img src="Logo/hero/Xman.png" alt="" class="icon_item">
+                        </div>
+                        
+                    </div>
+                </div>
+                <form class="form">
+                    <div class="input_1 flex_center">
+                        <label for="input1">Player 1 : </label>
+                        <input type="text" id="input1" placeholder="Name">
+                        <div class="input_icon flex_center">
+                            <img src="Logo/hero/batman.png" alt="">
+                        </div>
+                    </div>
+                    <div class="input_2 flex_center">
+                        <label for="input2">Player 2 : </label>
+                        <input type="text" id="input2" placeholder="Name">
+                        <div class="input_icon flex_center">
+                            <img src="Logo/hero/captin america.png" alt="">
+                        </div>
+                    </div>
+                    <button type="submit">Start THE game</button>
+                </form>
+            </div>
+            <div class="main_section" style="position: relative;">
+                <div class="player1_turn">
+                    <div class="player_name"></div>
+                    <img src="" alt="" class="player_icon">
+                </div>
+                <div class="player2_turn">
+                    <div class="player_name"></div>
+                    <img src="" alt="" class="player_icon">
+                </div>
+                <div class="game_title flex_center">
+                    Tic Tac Toe
+                </div>
+
+                <div class="gameBoard"></div>
+                <div class="Result flex_center"></div>
+                <div class="play_again flex_center">
+                    <div class="play_again_btn">
+                        play again
+                    </div>
+                </div>
+                <div class="return_home ">
+                    <div class="return_home_btn" style="display: block;">
+                        Return home
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+        
+    <script src="script.js"> </script>
+</body>
+</html>

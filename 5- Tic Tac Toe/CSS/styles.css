@@ -1,0 +1,218 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: 'Rubik', sans-serif;
+    
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+}
+.app{
+    color: #fff;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    font-size: 16px;
+    font-weight: 500;
+}
+.flex_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.absolut_center{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.container {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+}
+.main_section{
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+.game_title{
+    height: 15%;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 600 ;
+}
+.gameBoard{
+    height: 60%;
+    width: 60%;
+    margin: auto;
+    /* background-color: #fff; */
+}
+.cell_block{
+    justify-content: space-around;
+    height: 33.33%;
+}
+.cell{
+    width: 30%;
+    height: 90%;
+    font-size: 4em;
+    background-color: #767676;
+    cursor: pointer;
+    transition: fontSize 0.3s ease;
+}
+.Result{
+    height: 15%;
+    font-size: 2em;
+}
+.play_again_btn {
+    display: none;
+    height: 10%;
+    cursor: pointer;
+    background-color: #fff;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+.return_home_btn{
+    position: absolute;
+    bottom: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    color: #fff;
+    background-color: rgb(244, 0, 0);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+
+.input_section{
+    /* display: none; */
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+form{
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px solid #ffffff83;
+}
+
+form>div{
+    margin-bottom: 20px;
+}
+input{
+    width: 80px;
+    background-color: #c7c7c74e;
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+input::placeholder{
+    color: #ffffffa7;
+}
+form button {
+    padding: 10px;
+    margin: auto;
+    width: fit-content;
+    display: flex;
+    font-family: inherit;
+    background-color: lime;
+    /* color: #fff; */
+    cursor: pointer;
+    font-size: inherit;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.input_error_message{
+    display: none;
+    position: absolute;
+    background: #fe3d3d;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 400;
+    top: 50px;
+}
+.player1_turn,
+.player2_turn{
+    display: none;
+    position: absolute;
+    top: 30%;
+    transition: transform 0.2s ease;
+}
+.player1_turn{
+    left: -30px;
+    transform: translateX(-70px);
+}
+.player2_turn {
+    right: -30px; 
+    transform: translateX(70px);
+}
+.player_icon{
+    width: 50px;
+}
+.player_name{
+    text-align: center;
+    margin-bottom: 5px;
+}
+.input_icon{
+    width: 60px;
+    height: 50px;
+    /* background-color: red; */
+    border: 2px solid #fff;
+    margin: 0 0 0 5px ;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.input_icon img{
+    width: 35px;
+}
+.icons_block {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+.gray_bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background-color: rgba(128, 128, 128, 0.621);
+}
+.icons{
+    width: 240px;
+    height: 170px;
+    background-color: #fff;
+    flex-direction: column;
+    z-index: 100;
+    border-radius: 10px;
+    border: 2px solid black;
+    transform: scale(0);
+    transition: transform 0.2s ease;
+}
+.icons_show{
+    transform: scale(1);
+}
+.icons img{
+    width: 60px;
+    margin: 5px;
+    cursor: pointer;
+}
+@media (max-width : 671px){
+    .app{
+        overflow: hidden;
+    }
+    .gameBoard {
+        width: 80%;
+        height: 37%;
+    }
+    
+}
