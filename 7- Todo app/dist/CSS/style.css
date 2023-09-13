@@ -1,7 +1,6 @@
 :root{
     --main_bc : rgb(0, 0, 0);
     --second_bc : rgba(0, 0, 0, 0.856);
-    --third-bright-bg : rgba(255, 255, 255, 0.315);
     --main_color : #ffffffc3;
     --second_color : #3f3fffc9;
 }
@@ -20,7 +19,18 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+input ,button{
+    outline: none;
+  border: 2px solid var(--main_bc);
+  padding: 0;
+  margin: 0;
+  color: var(--main_bc);
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  font-family: "Rubik", sans-serif;
+    font-size: 1em;
+}
 
 /* nav */
 .nav_bar{
@@ -69,6 +79,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     overflow-y: auto;
+    user-select: none;
     /* gap: 100px; */
 }
 .content{
@@ -82,6 +93,7 @@ body {
 .home_menu_section,
 .projects_menu_section{
     width: 80%;
+    user-select: none;
 }
 .menu_sub_title{
     color: var(--main_color);
@@ -89,7 +101,11 @@ body {
     font-size: 2em;
     font-weight: 600;
     border-bottom: 2px solid var(--main_color);
-}.todo_items{
+}
+.projects_menu_section .menu_sub_title{
+    margin-bottom: 20px;
+}
+.todo_items{
     margin-top: 30px;
 }
 .todo_items img{
@@ -98,7 +114,7 @@ body {
 }
 .todo_items>div{
     padding: 10px;
-    margin: 20px;
+    margin: 15px;
     border-radius: 5px;
     cursor: pointer;
     justify-content: flex-start;
@@ -113,7 +129,7 @@ body {
     background-color: var(--second_color) !important;
 }
 .add_project{
-    margin-top: 25px;
+    margin-top: 10px;
     cursor: pointer;
     padding: 5px;
     border-radius: 10px;
@@ -124,4 +140,17 @@ body {
 }
 .add_project:hover{
     background-color: #ffffff54;
+}
+.Projects form{
+    display: none;
+    opacity: 0;
+    max-height: 0px ;
+    transition: max-height 0.35s ease,opacity 0.35s ease;
+}
+.Projects form button{
+    cursor: pointer;
+
+}
+.Projects form input{
+    width: 180px;
 }
