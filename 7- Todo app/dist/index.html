@@ -9,11 +9,21 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
     </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
+      }
+    </style>
   </head>
+
   <body>
     <div class="nav_bar flex_center">
       <div class="toggle_menu_btn flex_center">
-        <img src="Logo/menu.png" alt="">
+        <span class="material-symbols-outlined"> menu </span>
       </div>
       <div class="page_title flex_center">
         <div class="page_title_logo flex_center">
@@ -21,16 +31,49 @@
         </div>
         <div class="page_title_text">Do<span>it</span></div>
       </div>
-      <div class="night_mood ">
-        <img src="Logo/day-and-night.png" alt="">
+      <div class="night_mood">
+        <img src="Logo/day-and-night.png" alt="" />
       </div>
     </div>
 
-
     <div class="main">
-      <div class="menu"></div>
+      <div class="menu flex_center">
+        <div class="home_menu_section">
+          <div class="menu_sub_title">Home</div>
+          <div class="todo_items">
+            <div class="all_tasks flex_center active_todo_item">
+              <img src="Logo/all_tasks.png" alt="" />
+              All Tasks
+            </div>
+
+            <div class="today_tasks flex_center">
+              <img src="Logo/today.png" alt="" />
+              today Tasks
+            </div>
+
+            <div class="next_7_days flex_center">
+              <img src="Logo/next_week.png" alt="" />
+              Next 7 Days
+            </div>
+
+            <div class="important flex_center">
+              <img src="Logo/star.png" alt="" />
+              Important
+            </div>
+          </div>
+        </div>
+
+        <div class="projects_menu_section">
+          <div class="menu_sub_title">Projects</div>
+          <div class="Projects">
+            <div class="add_project flex_center">
+              <img src="Logo/add.png" alt="" />
+              add new Project
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="content"></div>
     </div>
-
   </body>
 </html>

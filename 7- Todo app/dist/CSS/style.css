@@ -3,7 +3,7 @@
     --second_bc : rgba(0, 0, 0, 0.856);
     --third-bright-bg : rgba(255, 255, 255, 0.315);
     --main_color : #ffffffc3;
-    --second_color : #3f3fff;
+    --second_color : #3f3fffc9;
 }
 body {
   margin: 0;
@@ -13,6 +13,7 @@ body {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
+  color: var(--main_color);
 } 
 .flex_center{
     display: flex;
@@ -38,11 +39,12 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
-.toggle_menu_btn img{
-    width: 25px;
-}
 .toggle_menu_btn{
-    background-color: var(--main_color);
+    border:2px solid var(--main_color);
+}
+.toggle_menu_btn span{
+    font-size: 1.7em !important;
+
 }
 .page_title_text{
     font-size: 2em;
@@ -58,13 +60,68 @@ body {
 .main{
     display: flex;
     height: calc(100vh - 66px);
+    
 }
 .menu{
-    flex: 35%;
+    flex: 30%;
+    padding-top: 30px;
     background-color: var(--second_bc);
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+    /* gap: 100px; */
 }
 .content{
-    flex: 65%;
+    flex: 70%;
     background-color: var(--main_bc);
 
+}
+.menu_sections{
+    width: 80%;
+}
+.home_menu_section,
+.projects_menu_section{
+    width: 80%;
+}
+.menu_sub_title{
+    color: var(--main_color);
+    padding-bottom: 15px;
+    font-size: 2em;
+    font-weight: 600;
+    border-bottom: 2px solid var(--main_color);
+}.todo_items{
+    margin-top: 30px;
+}
+.todo_items img{
+    width: 25px;
+    margin-right: 10px;
+}
+.todo_items>div{
+    padding: 10px;
+    margin: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: flex-start;
+}
+.todo_items>div:hover{
+    background-color: #ffffff54;
+}
+.active_todo_item{
+    background-color: var(--second_color);
+}
+.active_todo_item:hover{
+    background-color: var(--second_color) !important;
+}
+.add_project{
+    margin-top: 25px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+}
+.add_project img{
+    width: 30px;
+    margin-right: 10px;
+}
+.add_project:hover{
+    background-color: #ffffff54;
 }
