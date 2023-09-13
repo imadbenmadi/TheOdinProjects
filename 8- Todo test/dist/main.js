@@ -16,14 +16,15 @@ __webpack_require__.r(__webpack_exports__);
 class Project{
     constructor(name) {
         this.projectName = name;
+        this.todos = {};
     }
 }
 function CreatProjectElement(name) {
-    let ProjectContainer = document.querySelector(".Projects");
+    let Container = document.querySelector(".menu_container");
     let newProject = document.createElement("div")
     newProject.classList.add("Project_item");
     newProject.classList.add("flex_center");
-    newProject.classList.add("menu_btn");
+    // newProject.classList.add("menu_btn");
 
     let newProject_text = document.createElement("div");
     newProject_text.classList.add("Project_item_text");
@@ -33,12 +34,14 @@ function CreatProjectElement(name) {
     let newProject_menu_span = document.createElement("span");
     newProject_menu_span.textContent = "more_vert";
     newProject_menu_span.classList.add("material-symbols-outlined");
-   
     newProject_text.textContent = name;
+
     newProject_menu.appendChild(newProject_menu_span);
     newProject.appendChild(newProject_text);
     newProject.appendChild(newProject_menu);
-    ProjectContainer.insertBefore(newProject, ProjectContainer.firstChild);
+
+    let add_new_project_btn = document.querySelector(".add_project ");
+    Container.insertBefore(newProject, add_new_project_btn);
 }
 
 /***/ }),
@@ -58,19 +61,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _newProject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./newProject */ "./src/newProject.js");
 
 
-
-// export function changeMenuSelected(item) {
-//   let menu_items = document.querySelectorAll(".menu_btn");
-  
-// }
-
-
 function changeMenuSelected(menu_items , item) {
+  
     menu_items.forEach((item) => {
       item.classList.remove("active_menu_item");
     });
     item.classList.add("active_menu_item");
-    console.log(menu_items);
     // changeContent()
   
 }
@@ -83,18 +79,30 @@ function show_NewProject_Form(form) {
     form.style.opacity = "1";
   },1)
 }
+
+let All_projects = [];
+
 function addNewProject( name) {
   let new_project = new _newProject__WEBPACK_IMPORTED_MODULE_0__.Project(name);
-  let form = document.querySelector(".Projects form");
+  All_projects.push(new_project);
+  let form = document.querySelector("form");
   form.style.opacity = 0;
   form.style.maxHeight = 0;
   setTimeout(() => {
     form.style.display = "none"
   }, 370)
   ;(0,_newProject__WEBPACK_IMPORTED_MODULE_0__.CreatProjectElement)(new_project.projectName);
-  // console.log(new_project.projectName);
 }
 
+
+
+function isDuplicated(All_projects, newProject) {
+  All_projects.forEach((element) => {
+    if (element.projectName == newProject)
+      return -1;
+  })
+  return 1;
+}
 function check_empty_input(element) {
   if (element.textContent != "")
     return 1;
@@ -175,15 +183,13 @@ __webpack_require__.r(__webpack_exports__);
 let menu_items = document.querySelectorAll(".menu_btn");
 menu_items.forEach((item) => {
   item.addEventListener("click", () => {
-    console.log(item);
     (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.changeMenuSelected)(menu_items , item);
     // changeContent()
   });
 });
-// changeMenuSelected(menu_items);
 
 let show_newProjectForm_btn = document.querySelector(".add_project");
-let newProject_form = document.querySelector(".Projects form");
+let newProject_form = document.querySelector(".menu_form");
 show_newProjectForm_btn.addEventListener("click", () => {
   (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.show_NewProject_Form)(newProject_form);
 });
@@ -192,10 +198,10 @@ show_newProjectForm_btn.addEventListener("click", () => {
 let addProjectBtn = document.querySelector(".addProjectBtn");
 addProjectBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  let projectName_input = document.querySelector(".Projects form input").value;
+  let projectName_input = document.querySelector(
+    ".menu_container form input"
+  ).value;
   (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.addNewProject)(projectName_input);
-  menu_items = document.querySelectorAll(".menu_btn");
-  console.log(menu_items);
 });
 
 })();

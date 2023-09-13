@@ -70,7 +70,6 @@ input ,button{
 .main{
     display: flex;
     height: calc(100vh - 66px);
-    
 }
 .menu{
     flex: 30%;
@@ -87,11 +86,8 @@ input ,button{
     background-color: var(--main_bc);
 
 }
-.menu_sections{
-    width: 80%;
-}
-.home_menu_section,
-.projects_menu_section{
+
+.menu_container{
     width: 80%;
     user-select: none;
 }
@@ -102,20 +98,19 @@ input ,button{
     font-weight: 600;
     border-bottom: 2px solid var(--main_color);
 }
-.projects_menu_section .menu_sub_title{
+.title_porject{
     margin-bottom: 20px;
 }
-.todo_items{
+/* .menu_items{
     margin-top: 30px;
-}
-.todo_items img{
+} */
+.menu_item_img {
     width: 25px;
     margin-right: 10px;
 }
-/* .todo_items>div,,{ */
-.menu_btn{
+.menu_btn,.Project_item {
     padding: 10px;
-    margin: 15px;
+    margin: 15px 0;
     border-radius: 5px;
     cursor: pointer;
     justify-content: flex-start;
@@ -129,7 +124,8 @@ input ,button{
 .active_menu_item:hover{
     background-color: var(--second_color) !important;
 }
-.menu_btn:hover{
+.menu_btn:hover,
+.Project_item:hover{
     background-color: #ffffff54;
 }
 
@@ -153,16 +149,19 @@ input ,button{
 .add_project:hover{
     background-color: #ffffff54;
 }
-.Projects form{
+.menu_container form{
     display: none;
     opacity: 0;
     max-height: 0px ;
     transition: max-height 0.35s ease,opacity 0.35s ease;
 }
-.Projects form button{
+.menu_container form button{
     cursor: pointer;
 
 }
-.Projects form input{
+.menu_container form input{
     width: 180px;
+}
+.Project_item{
+    justify-content: space-between;
 }

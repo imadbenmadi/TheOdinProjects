@@ -21,6 +21,7 @@
   </head>
 
   <body>
+    
     <div class="nav_bar flex_center">
       <div class="toggle_menu_btn flex_center">
         <span class="material-symbols-outlined"> menu </span>
@@ -38,51 +39,51 @@
 
     <div class="main">
       <div class="menu flex_center">
-        <div class="home_menu_section">
+        <div class="menu_container">
           <div class="menu_sub_title">Home</div>
-          <div class="todo_items">
-            <div class="all_tasks flex_center active_menu_item menu_btn">
-              <img src="Logo/all_tasks.png" alt="" />
-              All Tasks
-            </div>
-
-            <div class="today_tasks flex_center menu_btn">
-              <img src="Logo/today.png" alt="" />
-              today Tasks
-            </div>
-
-            <div class="next_7_days flex_center menu_btn">
-              <img src="Logo/next_week.png" alt="" />
-              Next 7 Days
-            </div>
-
-            <div class="important flex_center menu_btn">
-              <img src="Logo/star.png" alt="" />
-              Important
-            </div>
+          <div class="all_tasks flex_center active_menu_item menu_btn">
+            <img src="Logo/all_tasks.png" alt="" class="menu_item_img" />
+            All Tasks
           </div>
-        </div>
 
-        <div class="projects_menu_section ">
-          <div class="menu_sub_title">Projects</div>
-          <div class="Projects">
-            <form>
-              <input type="text" placeholder="Project Name" />
-              <button class="addProjectBtn" type="submit" style="background: #89ff89; width: 48%">
-                add
-              </button>
-              <button
-                class="cancelProjectBtn"
-                style="background: #ff7e7e; width: 49%"
-              >
-                Cancel
-              </button>
-            </form>
-            <div class="add_project flex_center">
-              <img src="Logo/add.png" alt="" />
-              add new Project
-            </div>
+          <div class="today_tasks flex_center menu_btn">
+            <img src="Logo/today.png" alt="" class="menu_item_img" />
+            today Tasks
           </div>
+
+          <div class="next_7_days flex_center menu_btn">
+            <img src="Logo/next_week.png" alt="" class="menu_item_img" />
+            Next 7 Days
+          </div>
+
+          <div class="important flex_center menu_btn">
+            <img src="Logo/star.png" alt="" class="menu_item_img" />
+            Important
+          </div>
+
+          <div class="menu_sub_title title_porject">Projects</div>
+          <form class="menu_form">
+            <input type="text" placeholder="Project Name" />
+            <button
+              class="addProjectBtn"
+              type="submit"
+              style="background: #89ff89; width: 48%"
+            >
+              add
+            </button>
+            <button
+              class="cancelProjectBtn"
+              style="background: #ff7e7e; width: 49%"
+            >
+              Cancel
+            </button>
+          </form>
+          <div class="add_project flex_center">
+            <img src="Logo/add.png" alt="" />
+            add new Project
+          </div>
+
+          
         </div>
       </div>
       <div class="content"></div>

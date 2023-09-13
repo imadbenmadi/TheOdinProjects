@@ -1,18 +1,11 @@
 import { Project, CreatProjectElement } from "./newProject";
 
-
-// export function changeMenuSelected(item) {
-//   let menu_items = document.querySelectorAll(".menu_btn");
-  
-// }
-
-
 export function changeMenuSelected(menu_items , item) {
+  
     menu_items.forEach((item) => {
       item.classList.remove("active_menu_item");
     });
     item.classList.add("active_menu_item");
-    console.log(menu_items);
     // changeContent()
   
 }
@@ -25,18 +18,30 @@ export function show_NewProject_Form(form) {
     form.style.opacity = "1";
   },1)
 }
+
+let All_projects = [];
+
 export function addNewProject( name) {
   let new_project = new Project(name);
-  let form = document.querySelector(".Projects form");
+  All_projects.push(new_project);
+  let form = document.querySelector("form");
   form.style.opacity = 0;
   form.style.maxHeight = 0;
   setTimeout(() => {
     form.style.display = "none"
   }, 370)
   CreatProjectElement(new_project.projectName);
-  // console.log(new_project.projectName);
 }
 
+
+
+function isDuplicated(All_projects, newProject) {
+  All_projects.forEach((element) => {
+    if (element.projectName == newProject)
+      return -1;
+  })
+  return 1;
+}
 function check_empty_input(element) {
   if (element.textContent != "")
     return 1;
