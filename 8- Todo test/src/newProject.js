@@ -1,9 +1,16 @@
+import {
+  remove_All_Selected,
+  show_project_tasks,
+  handle_project_click_bg,
+} from "./ui_controler"; 
 export class Project{
     constructor(name) {
         this.projectName = name;
-        this.todos = {};
+        this.todos = [];        
     }
+
 }
+let selected_project = ""
 export function CreatProjectElement(name) {
     let Container = document.querySelector(".menu_container");
     let newProject = document.createElement("div")
@@ -27,4 +34,10 @@ export function CreatProjectElement(name) {
 
     let add_new_project_btn = document.querySelector(".add_project ");
     Container.insertBefore(newProject, add_new_project_btn);
+    newProject.addEventListener("click", () => {
+        remove_All_Selected();
+        handle_project_click_bg(newProject);
+        selected_project = newProject;
+        show_project_tasks(selected_project);
+    });
 }

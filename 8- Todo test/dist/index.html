@@ -21,7 +21,6 @@
   </head>
 
   <body>
-    
     <div class="nav_bar flex_center">
       <div class="toggle_menu_btn flex_center">
         <span class="material-symbols-outlined"> menu </span>
@@ -73,7 +72,7 @@
             </button>
             <button
               class="cancelProjectBtn"
-              style="background: #ff7e7e; width: 49%"
+              style="background: #ff7e7e; width: 45%"
             >
               Cancel
             </button>
@@ -82,11 +81,42 @@
             <img src="Logo/add.png" alt="" />
             add new Project
           </div>
-
-          
         </div>
       </div>
-      <div class="content"></div>
+      <div class="content flex_center">
+        <div class="Project_tasks">
+          <div class="Project_name"></div>
+          <div class="tasks"></div>
+          <form class="task_form">
+            <label for="input_title">Title: *</label>
+            <input type="text" placeholder="What to do?" id="input_title" />
+            <label for="input_descripton">Description (optional)</label>
+            <input
+              type="text"
+              placeholder="eg: I'm gonna play chest then triceps"
+              id="input_descripton"
+            />
+            <div class="flex_center">
+              <button
+                type="submit"
+                class="add_task_form"
+                style="background-color: #89ff89;width: 30%;";
+
+              >
+                Add
+              </button>
+              <button class="cancel_task_form" 
+                style="background-color: #ff7e7e;width: 30%;";
+              
+              >Cancel</button>
+            </div>
+          </form>
+          <div class="add_new_task flex_center">
+            <img src="Logo/add.png" alt="" />
+            Add Task
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="./main.js"></script>
