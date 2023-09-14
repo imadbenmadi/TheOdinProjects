@@ -14,8 +14,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Project: () => (/* binding */ Project)
 /* harmony export */ });
 /* harmony import */ var _ui_controler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui_controler */ "./src/ui_controler.js");
+/* harmony import */ var _state_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./state.js */ "./src/state.js");
  
-// import { selected_project_obj , All_projects } from "./index";
+
+
 class Project{
     constructor(name) {
         this.projectName = name;
@@ -25,7 +27,7 @@ class Project{
 
 
 
-function CreatProjectElement(name) {
+function CreatProjectElement(project) {
     let Container = document.querySelector(".menu_container");
     let newProject = document.createElement("div")
     newProject.classList.add("Project_item");
@@ -40,7 +42,7 @@ function CreatProjectElement(name) {
     let newProject_menu_span = document.createElement("span");
     newProject_menu_span.textContent = "more_vert";
     newProject_menu_span.classList.add("material-symbols-outlined");
-    newProject_text.textContent = name;
+    newProject_text.textContent = project.projectName;
 
     newProject_menu.appendChild(newProject_menu_span);
     newProject.appendChild(newProject_text);
@@ -51,12 +53,11 @@ function CreatProjectElement(name) {
 
 
 
-    let selected_project_obj = localStorage.getItem("selected_project");
     newProject.addEventListener("click", () => {
         (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.remove_All_Selected)();
         (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.handle_project_click_bg)(newProject);
-        // console.log(selected_project_obj);
-        // show_project_tasks(selected_project_obj);
+        _state_js__WEBPACK_IMPORTED_MODULE_1__.state.selected_project_obj = project;
+        (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.show_project_tasks)(_state_js__WEBPACK_IMPORTED_MODULE_1__.state.selected_project_obj);
     });
 }
 
@@ -71,6 +72,7 @@ function CreatProjectElement(name) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CreateTask: () => (/* binding */ CreateTask),
+/* harmony export */   CreateTask_Element: () => (/* binding */ CreateTask_Element),
 /* harmony export */   Task: () => (/* binding */ Task)
 /* harmony export */ });
 class Task{
@@ -81,9 +83,34 @@ class Task{
     }
 }
 function CreateTask(project_obj , newTask) {
-    project_obj.todos.push(newTask);
-    
+    project_obj.todos.push(newTask);   
 }
+
+function CreateTask_Element(task) {
+    let task_container = document.querySelector(".tasks");
+    let task_element = document.createElement("div")
+    task_element.classList.add("task_element")
+    task_element.textContent = task.title + " " + task.description;
+    task_container.appendChild(task_element);
+}
+
+/***/ }),
+
+/***/ "./src/state.js":
+/*!**********************!*\
+  !*** ./src/state.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   state: () => (/* binding */ state)
+/* harmony export */ });
+const state = {
+  selected_project_obj: {},
+  All_projects: [],
+};
+
 
 /***/ }),
 
@@ -168,14 +195,17 @@ function handle_project_click_bg(clicked_project) {
 }
 function show_project_tasks(project) {
   document.querySelector(".Project_tasks").style.display = "block";
-  if (project.todos.length === 0) {
-    console.log("Empty");
-    return;
-  }
+  // if (project.todos.length === 0) {
+  //   console.log("Empty");
+  //   return;
+  // }
+  let task_container = document.querySelector(".tasks");
+  task_container.innerHTML = "";
   project.todos.forEach((item) => {
-    console.log(item);
+    (0,_newTask__WEBPACK_IMPORTED_MODULE_1__.CreateTask_Element)(item);
   });
 }
+
 
 /***/ })
 
@@ -242,13 +272,10 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   All_projects: () => (/* binding */ All_projects),
-/* harmony export */   selected_project_obj: () => (/* binding */ selected_project_obj)
-/* harmony export */ });
 /* harmony import */ var _ui_controler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui_controler */ "./src/ui_controler.js");
 /* harmony import */ var _newProject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./newProject */ "./src/newProject.js");
 /* harmony import */ var _newTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./newTask */ "./src/newTask.js");
+/* harmony import */ var _state_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./state.js */ "./src/state.js");
 
 
 
@@ -256,11 +283,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let selected_project_obj = {};
-let All_projects = [];
-localStorage.setItem("selected_project", JSON.stringify(selected_project_obj));
-localStorage.setItem("All_projects", JSON.stringify(All_projects));
-
+// export let selected_project_obj = {};
+// export let All_projects = [];
 
 
 let menu_items = document.querySelectorAll(".menu_btn");
@@ -270,13 +294,7 @@ menu_items.forEach((item) => {
     // changeContent()
   });
 });
-// let Project_btns = document.querySelectorAll(".Project_item");
-// console.log(Project_btns);
-// Project_btns.forEach((project) => {
-//   project.addEventListener("click", () => {
-    
-//   })
-// });
+
 
 let show_newProjectForm_btn = document.querySelector(".add_project");
 let newProject_form = document.querySelector(".menu_form");
@@ -292,32 +310,17 @@ addProjectBtn.addEventListener("click", (event) => {
   ).value;
   
   let new_project = new _newProject__WEBPACK_IMPORTED_MODULE_1__.Project(projectName_input);
-  All_projects.push(new_project);
-  localStorage.setItem("All_projects", JSON.stringify(All_projects));
-  // console.log(All_projects);
-  // console.log(localStorage.getItem("All_projects"));
-  (0,_newProject__WEBPACK_IMPORTED_MODULE_1__.CreatProjectElement)(new_project.projectName);
+  _state_js__WEBPACK_IMPORTED_MODULE_3__.state.All_projects.push(new_project);
+  (0,_newProject__WEBPACK_IMPORTED_MODULE_1__.CreatProjectElement)(new_project);
   projectName_input = "";
   (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.hide_NewProject_Form)();
 
 });
 
 
-// function isDuplicated(All_projects, newProject) {
-//   All_projects.forEach((element) => {
-//     if (element.projectName == newProject) return 1;
-//   });
-//   return 0;
-// }
-// function isEmptyInput(element) {
-//   if (element == "") return 1;
-//   else return 0;
-// }
-
 // working with the task form 
-let taskform = document.querySelector(".task_form")
 document.querySelector(".add_new_task ").addEventListener("click", () => {
-  ;(0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.show_Task_input)();
+  (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.show_Task_input)();
 });
 let taskform_cancel = document.querySelector(".cancel_task_form");
 let taskform_add = document.querySelector(".add_task_form");
@@ -335,29 +338,27 @@ taskform_add.addEventListener("click", (event) => {
     ".task_form #input_descripton"
   ).value;
   let newTask = new _newTask__WEBPACK_IMPORTED_MODULE_2__.Task(input_title, input_descripton);
-  // console.log(newTask);
-  let selected_project = document.querySelector(".selected_project");
+  // let selected_project = document.querySelector(".selected_project");
   
-  All_projects.forEach((project) => {
-    if (project.projectName == selected_project.querySelector(".Project_item_text").textContent){
-      selected_project_obj = project;
-      localStorage.removeItem("selected_project");
-      localStorage.setItem(
-        "selected_project",
-        JSON.stringify(selected_project_obj)
-      );
-      console.log(localStorage.getItem("selected_project"));
-    }
-  })
+  // state.All_projects.forEach((project) => {
+  //   if (project.projectName == selected_project.querySelector(".Project_item_text").textContent){
+  //     state.selected_project_obj = project;
+  //   }
+  // })
   
-  ;(0,_newTask__WEBPACK_IMPORTED_MODULE_2__.CreateTask)(selected_project_obj, newTask);
+  
+  
+  // CreateTask(state.selected_project_obj, newTask);
+  if (_state_js__WEBPACK_IMPORTED_MODULE_3__.state.selected_project_obj) {
+    _state_js__WEBPACK_IMPORTED_MODULE_3__.state.selected_project_obj.todos.push(newTask);
+    (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.show_project_tasks)(_state_js__WEBPACK_IMPORTED_MODULE_3__.state.selected_project_obj);
+  }
+  else
+    console.log("error ");
   (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.hide_Task_input)();
 });
     
-  // console.log(localStorage.getItem("selected_project"));
-  // console.log(localStorage.getItem("All_projects"));
 
- 
 })();
 
 /******/ })()

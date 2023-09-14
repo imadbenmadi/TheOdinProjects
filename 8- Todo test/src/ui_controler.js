@@ -1,5 +1,5 @@
 import { Project, CreatProjectElement } from "./newProject";
-import { Task } from "./newTask"; 
+import { Task, CreateTask_Element } from "./newTask"; 
 
 
 
@@ -60,11 +60,13 @@ export function handle_project_click_bg(clicked_project) {
 }
 export function show_project_tasks(project) {
   document.querySelector(".Project_tasks").style.display = "block";
-  if (project.todos.length === 0) {
-    console.log("Empty");
-    return;
-  }
+  // if (project.todos.length === 0) {
+  //   console.log("Empty");
+  //   return;
+  // }
+  let task_container = document.querySelector(".tasks");
+  task_container.innerHTML = "";
   project.todos.forEach((item) => {
-    console.log(item);
+    CreateTask_Element(item);
   });
 }

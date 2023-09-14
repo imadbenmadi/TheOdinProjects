@@ -205,3 +205,16 @@ input ,button{
     cursor: pointer;
 
 }
+
+
+/* Tasks */
+.Project_tasks{
+    width: 70%;
+}
+.task_element{
+    width: 100%;
+    padding: 20px;
+    margin: 15px 0px;
+    border: 2px solid var(--main_color);
+    border-radius: 10px;
+}

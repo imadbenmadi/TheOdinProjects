@@ -3,7 +3,8 @@ import {
   show_project_tasks,
   handle_project_click_bg,
 } from "./ui_controler"; 
-// import { selected_project_obj , All_projects } from "./index";
+import { state } from "./state.js";
+
 export class Project{
     constructor(name) {
         this.projectName = name;
@@ -13,7 +14,7 @@ export class Project{
 
 
 
-export function CreatProjectElement(name) {
+export function CreatProjectElement(project) {
     let Container = document.querySelector(".menu_container");
     let newProject = document.createElement("div")
     newProject.classList.add("Project_item");
@@ -28,7 +29,7 @@ export function CreatProjectElement(name) {
     let newProject_menu_span = document.createElement("span");
     newProject_menu_span.textContent = "more_vert";
     newProject_menu_span.classList.add("material-symbols-outlined");
-    newProject_text.textContent = name;
+    newProject_text.textContent = project.projectName;
 
     newProject_menu.appendChild(newProject_menu_span);
     newProject.appendChild(newProject_text);
@@ -39,11 +40,10 @@ export function CreatProjectElement(name) {
 
 
 
-    let selected_project_obj = localStorage.getItem("selected_project");
     newProject.addEventListener("click", () => {
         remove_All_Selected();
         handle_project_click_bg(newProject);
-        // console.log(selected_project_obj);
-        // show_project_tasks(selected_project_obj);
+        state.selected_project_obj = project;
+        show_project_tasks(state.selected_project_obj);
     });
 }
