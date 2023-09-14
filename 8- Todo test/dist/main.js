@@ -15,14 +15,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _ui_controler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui_controler */ "./src/ui_controler.js");
  
+// import { selected_project_obj , All_projects } from "./index";
 class Project{
     constructor(name) {
         this.projectName = name;
         this.todos = [];        
     }
-
 }
-let selected_project = ""
+
+
+
 function CreatProjectElement(name) {
     let Container = document.querySelector(".menu_container");
     let newProject = document.createElement("div")
@@ -46,11 +48,15 @@ function CreatProjectElement(name) {
 
     let add_new_project_btn = document.querySelector(".add_project ");
     Container.insertBefore(newProject, add_new_project_btn);
+
+
+
+    let selected_project_obj = localStorage.getItem("selected_project");
     newProject.addEventListener("click", () => {
         (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.remove_All_Selected)();
         (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.handle_project_click_bg)(newProject);
-        selected_project = newProject;
-        (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.show_project_tasks)(selected_project);
+        // console.log(selected_project_obj);
+        // show_project_tasks(selected_project_obj);
     });
 }
 
@@ -162,9 +168,9 @@ function handle_project_click_bg(clicked_project) {
 }
 function show_project_tasks(project) {
   document.querySelector(".Project_tasks").style.display = "block";
-  if (project.todos = {}) {
+  if (project.todos.length === 0) {
     console.log("Empty");
-    return
+    return;
   }
   project.todos.forEach((item) => {
     console.log(item);
@@ -236,6 +242,10 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   All_projects: () => (/* binding */ All_projects),
+/* harmony export */   selected_project_obj: () => (/* binding */ selected_project_obj)
+/* harmony export */ });
 /* harmony import */ var _ui_controler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui_controler */ "./src/ui_controler.js");
 /* harmony import */ var _newProject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./newProject */ "./src/newProject.js");
 /* harmony import */ var _newTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./newTask */ "./src/newTask.js");
@@ -244,6 +254,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+let selected_project_obj = {};
+let All_projects = [];
+localStorage.setItem("selected_project", JSON.stringify(selected_project_obj));
+localStorage.setItem("All_projects", JSON.stringify(All_projects));
 
 
 
@@ -268,7 +284,6 @@ show_newProjectForm_btn.addEventListener("click", () => {
   (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.show_NewProject_Form)(newProject_form);
 });
 
-let All_projects = [];
 let addProjectBtn = document.querySelector(".addProjectBtn");
 addProjectBtn.addEventListener("click", (event) => {
   event.preventDefault();
@@ -278,7 +293,9 @@ addProjectBtn.addEventListener("click", (event) => {
   
   let new_project = new _newProject__WEBPACK_IMPORTED_MODULE_1__.Project(projectName_input);
   All_projects.push(new_project);
+  localStorage.setItem("All_projects", JSON.stringify(All_projects));
   // console.log(All_projects);
+  // console.log(localStorage.getItem("All_projects"));
   (0,_newProject__WEBPACK_IMPORTED_MODULE_1__.CreatProjectElement)(new_project.projectName);
   projectName_input = "";
   (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.hide_NewProject_Form)();
@@ -304,31 +321,42 @@ document.querySelector(".add_new_task ").addEventListener("click", () => {
 });
 let taskform_cancel = document.querySelector(".cancel_task_form");
 let taskform_add = document.querySelector(".add_task_form");
-let input_title = document.querySelector(".task_form #input_title").value;
-let input_descripton = document.querySelector(".task_form #input_descripton").value;
+
 taskform_cancel.addEventListener("click", (event) => {
   event.preventDefault();
   (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.hide_Task_input)();
 });
+
+
 taskform_add.addEventListener("click", (event) => {
   event.preventDefault();
+  let input_title = document.querySelector(".task_form #input_title").value;
+  let input_descripton = document.querySelector(
+    ".task_form #input_descripton"
+  ).value;
   let newTask = new _newTask__WEBPACK_IMPORTED_MODULE_2__.Task(input_title, input_descripton);
   // console.log(newTask);
   let selected_project = document.querySelector(".selected_project");
-  let selected_project_obj = "";
+  
   All_projects.forEach((project) => {
     if (project.projectName == selected_project.querySelector(".Project_item_text").textContent){
       selected_project_obj = project;
-      console.log(selected_project_obj);;
+      localStorage.removeItem("selected_project");
+      localStorage.setItem(
+        "selected_project",
+        JSON.stringify(selected_project_obj)
+      );
+      console.log(localStorage.getItem("selected_project"));
     }
   })
-  console.log(selected_project);
-  (0,_newTask__WEBPACK_IMPORTED_MODULE_2__.CreateTask)(selected_project_obj, newTask);
+  
+  ;(0,_newTask__WEBPACK_IMPORTED_MODULE_2__.CreateTask)(selected_project_obj, newTask);
   (0,_ui_controler__WEBPACK_IMPORTED_MODULE_0__.hide_Task_input)();
 });
+    
+  // console.log(localStorage.getItem("selected_project"));
+  // console.log(localStorage.getItem("All_projects"));
 
-
-// relate the Project section with its tasks
  
 })();
 

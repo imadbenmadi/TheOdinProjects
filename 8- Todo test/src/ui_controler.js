@@ -60,9 +60,9 @@ export function handle_project_click_bg(clicked_project) {
 }
 export function show_project_tasks(project) {
   document.querySelector(".Project_tasks").style.display = "block";
-  if (project.todos = {}) {
+  if (project.todos.length === 0) {
     console.log("Empty");
-    return
+    return;
   }
   project.todos.forEach((item) => {
     console.log(item);

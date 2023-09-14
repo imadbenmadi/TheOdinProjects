@@ -3,14 +3,16 @@ import {
   show_project_tasks,
   handle_project_click_bg,
 } from "./ui_controler"; 
+// import { selected_project_obj , All_projects } from "./index";
 export class Project{
     constructor(name) {
         this.projectName = name;
         this.todos = [];        
     }
-
 }
-let selected_project = ""
+
+
+
 export function CreatProjectElement(name) {
     let Container = document.querySelector(".menu_container");
     let newProject = document.createElement("div")
@@ -34,10 +36,14 @@ export function CreatProjectElement(name) {
 
     let add_new_project_btn = document.querySelector(".add_project ");
     Container.insertBefore(newProject, add_new_project_btn);
+
+
+
+    let selected_project_obj = localStorage.getItem("selected_project");
     newProject.addEventListener("click", () => {
         remove_All_Selected();
         handle_project_click_bg(newProject);
-        selected_project = newProject;
-        show_project_tasks(selected_project);
+        // console.log(selected_project_obj);
+        // show_project_tasks(selected_project_obj);
     });
 }
