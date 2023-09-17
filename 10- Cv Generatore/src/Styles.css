@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+}
+input{
+    outline: none;
+    border: none;
+}
+.main{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.233);
+}
+.Sections{
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+}
+.Sections form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: stretch;
+    background-color: rgba(0, 0, 0, 0.233);
+    border-radius: 4px;
+}
+.Sections form input{
+    display: block;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+}
+.CV_container{
+    width: 50vw;
+    min-height: 50vh;
+    padding: 25px;
+    margin: 20px;
+    border: 3px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.CV_container div{
+    min-height: 30px;
+    font-size: 2em;
+
+}
